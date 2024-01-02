@@ -19,7 +19,7 @@ package io.fluffydaddy.reactive.livedata;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.arch.core.executor.ArchTaskExecutor;
+import io.fluffydaddy.jtasks.execution.runtime.ArchTaskExecutor;
 import androidx.arch.core.internal.SafeIterableMap;
 
 import java.util.Iterator;
