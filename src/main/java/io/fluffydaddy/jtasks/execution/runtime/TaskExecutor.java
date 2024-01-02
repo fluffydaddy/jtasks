@@ -15,7 +15,7 @@
  */
 package io.fluffydaddy.jtasks.execution.runtime;
 
-import androidx.annotation.NonNull;
+import io.fluffydaddy.annotation.NonNull;
 
 public abstract class TaskExecutor
 {

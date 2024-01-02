@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.driver.channel;
 
-import androidx.annotation.NonNull;
+import io.fluffydaddy.annotation.NonNull;
 import io.fluffydaddy.driver.Channel;
 import io.fluffydaddy.jutils.queue.ByteQueueListener;
 

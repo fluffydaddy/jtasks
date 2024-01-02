@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.reactive;
 
-import androidx.annotation.Nullable;
+import io.fluffydaddy.annotation.Nullable;
 
 /**
  * Builds a {@link DataSubscription} for a {@link DataObserver} passed via {@link #observer(DataObserver)}.

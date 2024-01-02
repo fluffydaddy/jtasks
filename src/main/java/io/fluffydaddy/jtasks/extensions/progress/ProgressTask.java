@@ -16,8 +16,8 @@
 
 package io.fluffydaddy.jtasks.extensions.progress;
 
-import androidx.annotation.AnyThread;
-import androidx.annotation.MainThread;
+import io.fluffydaddy.annotation.AnyThread;
+import io.fluffydaddy.annotation.MainThread;
 
 import io.fluffydaddy.driver.Channel;
 import io.fluffydaddy.jtasks.extensions.transfer.TransferTask;

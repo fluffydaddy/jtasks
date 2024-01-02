@@ -16,8 +16,8 @@
 package io.fluffydaddy.jtasks.execution.runtime;
 
 import java.util.concurrent.Executor;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import io.fluffydaddy.annotation.NonNull;
+import io.fluffydaddy.annotation.Nullable;
 
 /**
  * A static class that serves as a central point to execute common tasks.

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
-import androidx.annotation.NonNull;
+import io.fluffydaddy.annotation.NonNull;
 import io.fluffydaddy.jutils.Array;
 import io.fluffydaddy.jutils.Unit;
 import io.fluffydaddy.reactive.DataSubscriber;

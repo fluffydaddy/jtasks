@@ -16,8 +16,8 @@
 
 package io.fluffydaddy.jtasks.impl;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
+import io.fluffydaddy.annotation.MainThread;
+import io.fluffydaddy.annotation.NonNull;
 import io.fluffydaddy.jtasks.execution.runtime.ArchTaskExecutor;
 import io.fluffydaddy.jtasks.core.ITaskService;
 import io.fluffydaddy.jtasks.core.ITaskTracker;

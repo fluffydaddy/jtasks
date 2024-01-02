@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.jtasks.execution;
 
-import androidx.annotation.NonNull;
+import io.fluffydaddy.annotation.NonNull;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;

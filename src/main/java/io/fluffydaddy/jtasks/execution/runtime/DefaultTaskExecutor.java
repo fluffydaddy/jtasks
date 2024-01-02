@@ -15,8 +15,8 @@
  */
 package io.fluffydaddy.jtasks.execution.runtime;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import io.fluffydaddy.annotation.NonNull;
+import io.fluffydaddy.annotation.Nullable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
