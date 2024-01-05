@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.feature;
+package io.fluffydaddy.plugin;
 
-/**
- * @param <R> Return value post async task execution.
- */
-public interface ICommand<R> {
-    IDeploy<R> deploy(); // Что-то выполнить.
-    IEmploy<R> employ(); // Что-то завершить.
+public interface PluginListener {
+	void onManage(Plugin plugin);
+	void onInject(Plugin plugin);
+	void onDeploy(Plugin plugin);
+	void onDelete(Plugin plugin);
+	void onUpdate(Plugin plugin);
 }

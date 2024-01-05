@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,22 +17,21 @@ package io.fluffydaddy.jtasks.execution.runtime;
 
 import io.fluffydaddy.annotation.NonNull;
 
-public abstract class TaskExecutor
-{
+public abstract class TaskExecutor {
     /**
-     * Executes the given task in the disk IO thread pool.
+     * Executes the given task in the work IO thread pool.
      *
-     * @param runnable The runnable to run in the disk IO thread pool.
+     * @param runnable The runnable to run in the work IO thread pool.
      */
-    public abstract void executeOnDiskIO(@NonNull Runnable runnable);
-
+    public abstract void executeOnWorkIO(@NonNull Runnable runnable);
+    
     /**
      * Posts the given task to the main thread.
      *
      * @param runnable The runnable to run on the main thread.
      */
     public abstract void postToMainThread(@NonNull Runnable runnable);
-
+    
     /**
      * Executes the given task on the main thread.
      * <p>
@@ -47,7 +46,7 @@ public abstract class TaskExecutor
             postToMainThread(runnable);
         }
     }
-
+    
     /**
      * Returns true if the current thread is the main thread, false otherwise.
      *

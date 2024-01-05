@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.plugin;
+package io.fluffydaddy.feature.impl;
 
-public interface PluginListener {
-	void onManage(Plugin plugin);
-	void onInject(Plugin plugin);
-	void onDeploy(Plugin plugin);
-	void onDelete(Plugin plugin);
-	void onUpdate(Plugin plugin);
+import io.fluffydaddy.reactive.Scheduler;
+import io.fluffydaddy.jtasks.factory.Service;
+import io.fluffydaddy.feature.IFeature;
+import io.fluffydaddy.feature.ITask;
+
+public abstract class TaskImpl<P, R> implements ITask<P, R>, Service<P, R> {
+	@Override
+	public IFeature<P, R> schedule(final Scheduler scheduler, P param) {
+		return new FeatureImpl<>(this, scheduler, param);
+	}
 }

@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.reactive;
+package io.fluffydaddy.feature;
 
-public interface DataTransformer<F, T> {
-	T transform(F source);
+import io.fluffydaddy.reactive.DataSubscription;
+import io.fluffydaddy.reactive.ErrorObserver;
+
+public interface IDeploy<R> extends DataSubscription {
+	R execute(ErrorObserver errors); // execute
 }

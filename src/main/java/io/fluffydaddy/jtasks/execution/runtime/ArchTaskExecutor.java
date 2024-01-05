@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,36 +15,34 @@
  */
 package io.fluffydaddy.jtasks.execution.runtime;
 
-import java.util.concurrent.Executor;
 import io.fluffydaddy.annotation.NonNull;
 import io.fluffydaddy.annotation.Nullable;
 
+import java.util.concurrent.Executor;
+
 /**
  * A static class that serves as a central point to execute common tasks.
- * <p>
- *
- * @hide This API is not final.
  */
 public class ArchTaskExecutor extends TaskExecutor {
     private static volatile ArchTaskExecutor sInstance;
-
+    
     @NonNull
     private TaskExecutor mDelegate;
-
+    
     @NonNull
     private final TaskExecutor mDefaultTaskExecutor;
-
+    
     @NonNull
     private static final Executor sMainThreadExecutor = command -> getInstance().postToMainThread(command);
-
+    
     @NonNull
-    private static final Executor sIOThreadExecutor = command -> getInstance().executeOnDiskIO(command);
-
+    private static final Executor sWorkThreadExecutor = command -> getInstance().executeOnWorkIO(command);
+    
     private ArchTaskExecutor() {
         mDefaultTaskExecutor = new DefaultTaskExecutor();
         mDelegate = mDefaultTaskExecutor;
     }
-
+    
     /**
      * Returns an instance of the task executor.
      *
@@ -62,7 +60,7 @@ public class ArchTaskExecutor extends TaskExecutor {
         }
         return sInstance;
     }
-
+    
     /**
      * Sets a delegate to handle task execution requests.
      * <p>
@@ -76,27 +74,27 @@ public class ArchTaskExecutor extends TaskExecutor {
     public void setDelegate(@Nullable TaskExecutor taskExecutor) {
         mDelegate = taskExecutor == null ? mDefaultTaskExecutor : taskExecutor;
     }
-
+    
     @Override
-    public void executeOnDiskIO(@NonNull Runnable runnable) {
-        mDelegate.executeOnDiskIO(runnable);
+    public void executeOnWorkIO(@NonNull Runnable runnable) {
+        mDelegate.executeOnWorkIO(runnable);
     }
-
+    
     @Override
     public void postToMainThread(@NonNull Runnable runnable) {
         mDelegate.postToMainThread(runnable);
     }
-
+    
     @NonNull
     public static Executor getMainThreadExecutor() {
         return sMainThreadExecutor;
     }
-
+    
     @NonNull
-    public static Executor getIOThreadExecutor() {
-        return sIOThreadExecutor;
+    public static Executor getWorkThreadExecutor() {
+        return sWorkThreadExecutor;
     }
-
+    
     @Override
     public boolean isMainThread() {
         return mDelegate.isMainThread();

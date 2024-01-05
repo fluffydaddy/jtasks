@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.feature;
+package io.fluffydaddy.storage;
 
-import io.fluffydaddy.reactive.DataSubscription;
-import io.fluffydaddy.reactive.ErrorObserver;
+import java.util.Map;
 
-public interface IDeploy<R> extends DataSubscription {
-	R execute(ErrorObserver errors); // execute
+public interface Inflater {
+    <T> void put(String name, T type);
+    <T> T get(String name);
+    int getCount();
+    Map<String, ?> get();
 }

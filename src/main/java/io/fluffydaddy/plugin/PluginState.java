@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.plugin;
+package io.fluffydaddy.plugin;
 
 import io.fluffydaddy.jutils.queue.ByteReader;
 import io.fluffydaddy.jutils.queue.ByteWriter;
