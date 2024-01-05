@@ -17,7 +17,9 @@
 package io.fluffydaddy.reactive.livedata;
 
 /**
- * {@link LiveData} which publicly exposes {@link MutableLiveData#setValue(T)} and {@link MutableLiveData#postValue(T)} method.
+ * <p>{@link LiveData} which publicly exposes {@link LiveData#setValue(Object) setValue(T)} and
+ * {@link LiveData#postValue(Object) postValue(T)} method.
+ * </p>
  *
  * @param <T> The type of data hold by this instance
  */
