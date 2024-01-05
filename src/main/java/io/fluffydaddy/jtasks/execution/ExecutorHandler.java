@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,34 +16,50 @@
 
 package io.fluffydaddy.jtasks.execution;
 
+/**
+ * An interface representing a handler for executing tasks with specified parameters.
+ *
+ * @param <R> The result type of the task execution.
+ * @param <P> The parameter type of the task execution.
+ */
 public interface ExecutorHandler<R, P> {
     /**
-     * Операция выполнена успешно.
+     * Invoked when the operation is completed successfully.
+     *
+     * @param result The result of the completed operation.
      */
     void onComplete(R result);
     
     /**
-     * Операция была отменена.
+     * Invoked when the operation is canceled.
+     *
+     * @param result The result associated with the canceled operation.
      */
     void onCanceled(R result);
     
     /**
-     * Выполняется перед запуском задачи.
+     * Invoked before starting the task execution.
      */
     void onExecute();
     
     /**
-     * Операция выполнена с ошибкой.
+     * Invoked when the operation is completed with an error.
+     *
+     * @param cause The exception causing the error in the operation.
      */
     void onException(Throwable cause);
     
     /**
-     * Вызывается если операцию хотят прервать.
+     * Invoked when there is a request to terminate the operation.
      */
     void onTerminate();
     
     /**
-     * Выполнить задачу в фоновом потоке.
+     * Executes the task in the background thread.
+     *
+     * @param param The parameter for the task execution.
+     * @return The result of the task execution.
+     * @throws Exception If an exception occurs during the task execution.
      */
     R doInBackground(P param) throws Exception;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.impl.feature;
+package io.fluffydaddy.feature.impl;
 
-import io.fluffydaddy.jutils.Lazy;
+import io.fluffydaddy.feature.IEmploy;
+import io.fluffydaddy.jutils.collection.Lazy;
 import io.fluffydaddy.reactive.ErrorObserver;
-import io.fluffydaddy.jtasks.feature.IEmploy;
 
 public class EmployImpl<R> implements IEmploy<R> {
     private boolean canceled = false;
-
+    
     final Lazy<ErrorObserver, R> executable;
-
+    
     public EmployImpl(Lazy<ErrorObserver, R> executable) {
         this.executable = executable;
     }
-
+    
     @Override
     public void cancel() {
         this.canceled = true;
     }
-
+    
     @Override
     public boolean isCanceled() {
         return this.canceled;
     }
-
+    
     @Override
     public R fire(ErrorObserver errors) {
         return executable.invoke(errors);

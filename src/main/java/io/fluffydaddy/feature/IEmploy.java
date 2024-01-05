@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,24 +14,11 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.impl.feature;
+package io.fluffydaddy.feature;
 
+import io.fluffydaddy.reactive.DataSubscription;
 import io.fluffydaddy.reactive.ErrorObserver;
-import io.fluffydaddy.jtasks.feature.ICommand;
-import io.fluffydaddy.jtasks.feature.IDeploy;
-import io.fluffydaddy.jtasks.feature.IEmploy;
 
-public abstract class CommandImpl<R> implements ICommand<R> {
-	@Override
-	public IDeploy<R> deploy() {
-		return new DeployImpl<>(this::execute);
-	}
-
-	@Override
-	public IEmploy<R> employ() {
-		return new EmployImpl<>(this::destroy);
-	}
-
-	protected abstract R execute(ErrorObserver errors);
-	protected abstract R destroy(ErrorObserver errors);
+public interface IEmploy<R> extends DataSubscription {
+    R fire(ErrorObserver errors); // destroy
 }

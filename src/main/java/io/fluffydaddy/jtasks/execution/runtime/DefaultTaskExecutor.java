@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,45 +17,46 @@ package io.fluffydaddy.jtasks.execution.runtime;
 
 import io.fluffydaddy.annotation.NonNull;
 import io.fluffydaddy.annotation.Nullable;
+import io.fluffydaddy.jtasks.execution.ExecutorSignal;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-import io.fluffydaddy.jtasks.execution.ExecutorSignal;
 
-public class DefaultTaskExecutor extends TaskExecutor
-{
+public class DefaultTaskExecutor extends TaskExecutor {
     private static final Thread MAIN_THREAD;
-
+    
     static {
         MAIN_THREAD = Thread.currentThread();
     }
-
+    
     private final Object mLock = new Object();
-
-    private final ExecutorService mDiskIO = Executors.newFixedThreadPool(4, new ThreadFactory() {
-        private static final String THREAD_NAME_STEM = "arch_disk_io_";
-
+    
+    private final ExecutorService mWorkIO = Executors.newFixedThreadPool(4, new ThreadFactory() {
+        private static final String THREAD_NAME_STEM = "arch_work_io_";
+        
         private final AtomicInteger mThreadId = new AtomicInteger(0);
-
+        
         @Override
-        public Thread newThread(@NonNull Runnable r) {
+        public Thread newThread(@NotNull Runnable r) {
             Thread t = new Thread(r);
             t.setName(THREAD_NAME_STEM + mThreadId.getAndIncrement());
             return t;
         }
     });
-
+    
     @Nullable
     private volatile Executor mMainHandler;
     private volatile Thread mMainThread = MAIN_THREAD;
-
+    
     @Override
-    public void executeOnDiskIO(@NonNull Runnable runnable) {
-        mDiskIO.execute(runnable);
+    public void executeOnWorkIO(@NonNull Runnable runnable) {
+        mWorkIO.execute(runnable);
     }
-
+    
     @Override
     public void postToMainThread(@NonNull Runnable runnable) {
         if (mMainHandler == null) {
@@ -68,7 +69,7 @@ public class DefaultTaskExecutor extends TaskExecutor
         //noinspection ConstantConditions
         mMainHandler.execute(runnable);
     }
-
+    
     @Override
     public boolean isMainThread() {
         return mMainThread == Thread.currentThread();

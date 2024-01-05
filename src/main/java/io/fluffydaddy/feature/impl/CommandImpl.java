@@ -14,8 +14,24 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.reactive;
+package io.fluffydaddy.feature.impl;
 
-public interface DataTransformer<F, T> {
-	T transform(F source);
+import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.feature.ICommand;
+import io.fluffydaddy.feature.IDeploy;
+import io.fluffydaddy.feature.IEmploy;
+
+public abstract class CommandImpl<R> implements ICommand<R> {
+	@Override
+	public IDeploy<R> deploy() {
+		return new DeployImpl<>(this::execute);
+	}
+
+	@Override
+	public IEmploy<R> employ() {
+		return new EmployImpl<>(this::destroy);
+	}
+
+	protected abstract R execute(ErrorObserver errors);
+	protected abstract R destroy(ErrorObserver errors);
 }

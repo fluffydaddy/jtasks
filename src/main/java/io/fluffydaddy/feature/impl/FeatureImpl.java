@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.impl.feature;
+package io.fluffydaddy.feature.impl;
 
 import java.util.Iterator;
 
-import io.fluffydaddy.jutils.Array;
-import io.fluffydaddy.jutils.Unit;
+import io.fluffydaddy.jutils.collection.Array;
+import io.fluffydaddy.jutils.collection.Unit;
 import io.fluffydaddy.reactive.DataObserver;
 import io.fluffydaddy.reactive.ErrorObserver;
 import io.fluffydaddy.reactive.Reactive;
 import io.fluffydaddy.reactive.Scheduler;
 import io.fluffydaddy.jtasks.factory.Service;
-import io.fluffydaddy.jtasks.feature.ICommand;
-import io.fluffydaddy.jtasks.feature.IDeploy;
-import io.fluffydaddy.jtasks.feature.IEmploy;
-import io.fluffydaddy.jtasks.feature.IFeature;
+import io.fluffydaddy.feature.ICommand;
+import io.fluffydaddy.feature.IDeploy;
+import io.fluffydaddy.feature.IEmploy;
+import io.fluffydaddy.feature.IFeature;
 
 public class FeatureImpl<P, R> implements IFeature<P, R>, ErrorObserver {
     private final Array<DataObserver<R>> observers = new Array<>();

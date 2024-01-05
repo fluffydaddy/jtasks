@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.plugin;
+package io.fluffydaddy.feature;
 
-import io.fluffydaddy.reactive.DataObserver;
-import io.fluffydaddy.reactive.DataSubscriber;
 import io.fluffydaddy.reactive.Scheduler;
 
-public interface PluginManagment extends DataSubscriber<DataObserver<Plugin>> {
-	void install(Plugin plugin);
-	void uninstall(Plugin plugin);
-	void clean(Plugin plugin);
-	
-	void plug(Scheduler scheduler);
-	void unplug(Scheduler scheduler);
+public interface ITask<P, R> {
+	IFeature<P, R> schedule(Scheduler scheduler, P param);
 }

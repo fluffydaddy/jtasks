@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.plugin;
+package io.fluffydaddy.plugin;
 
 import io.fluffydaddy.reactive.DataSubscriber;
+import io.fluffydaddy.storage.Storage;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public interface Plugin extends DataSubscriber<PluginListener> {
 	 * @throws IOException
 	 */
 	void backup(PluginState state) throws IOException;
-
+	
 	/**
 	 * @param state Объект для сохранения состояния при входе в жизненный цикл, если ранее были какие-то изменения.
 	 * @throws IOException
@@ -40,6 +41,8 @@ public interface Plugin extends DataSubscriber<PluginListener> {
 	void deploy(); // Установка плагина.
 	void delete(); // Удаление плагина.
 	void update(); // Обновление планина.
+	
+	Storage getStorage();
 	
 	// plug and unplug
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 fluffydaddy
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package io.fluffydaddy.jtasks.impl.feature;
+package io.fluffydaddy.plugin;
 
+import io.fluffydaddy.reactive.DataObserver;
+import io.fluffydaddy.reactive.DataSubscriber;
 import io.fluffydaddy.reactive.Scheduler;
-import io.fluffydaddy.jtasks.factory.Service;
-import io.fluffydaddy.jtasks.feature.IFeature;
-import io.fluffydaddy.jtasks.feature.ITask;
 
-public abstract class TaskImpl<P, R> implements ITask<P, R>, Service<P, R> {
-	@Override
-	public IFeature<P, R> schedule(final Scheduler scheduler, P param) {
-		return new FeatureImpl<>(this, scheduler, param);
-	}
+public interface PluginManagment extends DataSubscriber<DataObserver<Plugin>> {
+	void install(Plugin plugin);
+	void uninstall(Plugin plugin);
+	void clean(Plugin plugin);
+	
+	void plug(Scheduler scheduler);
+	void unplug(Scheduler scheduler);
 }

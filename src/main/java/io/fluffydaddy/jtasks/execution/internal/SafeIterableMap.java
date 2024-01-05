@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 The Android Open Source Project
+ * Copyright © 2024 fluffydaddy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import java.util.WeakHashMap;
  *
  * @param <K> Key type
  * @param <V> Value type
- * @hide
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
 public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
@@ -316,10 +315,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
             return entry.mNext;
         }
     }
-
-    /**
-     * @hide
-     */
+    
     @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
     public class IteratorWithAdditions extends SupportRemove<K, V>
             implements Iterator<Map.Entry<K, V>> {
@@ -359,8 +355,6 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /**
-     * @hide
-     *
      * @param <K>
      * @param <V>
      */
