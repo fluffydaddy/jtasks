@@ -6,8 +6,8 @@
 
     <groupId>io.github.fluffydaddy</groupId>
     <artifactId>jtasks</artifactId>
-    <version>1.0.2</version>
-    <name>Reactive Java and Tasks</name>
+    <version>1.0.3</version>
+    <name>Java Tasks</name>
 
     <properties>
         <maven.compiler.source>9</maven.compiler.source>
@@ -35,8 +35,13 @@
         <dependency>
             <groupId>io.github.fluffydaddy</groupId>
             <artifactId>jutils</artifactId>
-            <version>1.0.3</version>
-            <type>jar</type>
+            <version>1.0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.fluffydaddy</groupId>
+            <artifactId>jreactive</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
@@ -80,21 +85,8 @@
         </repository>
     </distributionManagement>
 
-    <profiles>
-        <!-- GPG Signature on release -->
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-        </profile>
-    </profiles>
-
     <build>
-        <defaultGoal>install</defaultGoal>
+        <defaultGoal>package</defaultGoal>
         <resources>
             <resource>
                 <directory>${project.basedir}</directory>
@@ -234,7 +226,6 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
-                    <failOnMissingTestClasses>false</failOnMissingTestClasses>
                 </configuration>
             </plugin>
         </plugins>

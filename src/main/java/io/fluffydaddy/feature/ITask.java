@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.feature;
 
-import io.fluffydaddy.reactive.Scheduler;
+import io.fluffydaddy.jreactive.Scheduler;
 
 public interface ITask<P, R> {
 	IFeature<P, R> schedule(Scheduler scheduler, P param);

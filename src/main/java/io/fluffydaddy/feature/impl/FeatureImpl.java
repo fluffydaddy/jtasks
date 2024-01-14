@@ -20,10 +20,10 @@ import java.util.Iterator;
 
 import io.fluffydaddy.jutils.collection.Array;
 import io.fluffydaddy.jutils.collection.Unit;
-import io.fluffydaddy.reactive.DataObserver;
-import io.fluffydaddy.reactive.ErrorObserver;
-import io.fluffydaddy.reactive.Reactive;
-import io.fluffydaddy.reactive.Scheduler;
+import io.fluffydaddy.jreactive.DataObserver;
+import io.fluffydaddy.jreactive.ErrorObserver;
+import io.fluffydaddy.jreactive.Reactive;
+import io.fluffydaddy.jreactive.Scheduler;
 import io.fluffydaddy.jtasks.factory.Service;
 import io.fluffydaddy.feature.ICommand;
 import io.fluffydaddy.feature.IDeploy;

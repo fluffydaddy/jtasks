@@ -18,7 +18,7 @@ package io.fluffydaddy.feature.impl;
 
 import io.fluffydaddy.feature.IEmploy;
 import io.fluffydaddy.jutils.collection.Lazy;
-import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.jreactive.ErrorObserver;
 
 public class EmployImpl<R> implements IEmploy<R> {
     private boolean canceled = false;

@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.feature.impl;
 
-import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.jreactive.ErrorObserver;
 import io.fluffydaddy.feature.ICommand;
 import io.fluffydaddy.feature.IDeploy;
 import io.fluffydaddy.feature.IEmploy;

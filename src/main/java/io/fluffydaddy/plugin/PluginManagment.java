@@ -16,9 +16,9 @@
 
 package io.fluffydaddy.plugin;
 
-import io.fluffydaddy.reactive.DataObserver;
-import io.fluffydaddy.reactive.DataSubscriber;
-import io.fluffydaddy.reactive.Scheduler;
+import io.fluffydaddy.jreactive.DataObserver;
+import io.fluffydaddy.jreactive.DataSubscriber;
+import io.fluffydaddy.jreactive.Scheduler;
 
 public interface PluginManagment extends DataSubscriber<DataObserver<Plugin>> {
 	void install(Plugin plugin);

@@ -17,8 +17,8 @@
 package io.fluffydaddy.feature.impl;
 
 import io.fluffydaddy.feature.IDeploy;
+import io.fluffydaddy.jreactive.ErrorObserver;
 import io.fluffydaddy.jutils.collection.Lazy;
-import io.fluffydaddy.reactive.ErrorObserver;
 
 public class DeployImpl<R> implements IDeploy<R> {
     private boolean canceled = false;

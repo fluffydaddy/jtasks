@@ -16,8 +16,8 @@
 
 package io.fluffydaddy.feature;
 
-import io.fluffydaddy.reactive.DataSubscription;
-import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.jreactive.DataSubscription;
+import io.fluffydaddy.jreactive.ErrorObserver;
 
 public interface IEmploy<R> extends DataSubscription {
     R fire(ErrorObserver errors); // destroy

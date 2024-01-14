@@ -18,8 +18,8 @@ package io.fluffydaddy.feature;
 
 import java.util.concurrent.Callable;
 
-import io.fluffydaddy.reactive.DataObserver;
-import io.fluffydaddy.reactive.DataSubscriber;
+import io.fluffydaddy.jreactive.DataObserver;
+import io.fluffydaddy.jreactive.DataSubscriber;
 
 public interface IFeature<P, R> extends DataSubscriber<DataObserver<R>>, Callable<R> {
 	IFeature<P, R> survive(ICommand<R> command);

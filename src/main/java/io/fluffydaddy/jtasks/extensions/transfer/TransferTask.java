@@ -16,9 +16,9 @@
 
 package io.fluffydaddy.jtasks.extensions.transfer;
 
-import io.fluffydaddy.driver.Channel;
+import io.fluffydaddy.jreactive.DataTransformer;
 import io.fluffydaddy.jtasks.impl.TaskService;
-import io.fluffydaddy.reactive.DataTransformer;
+import io.fluffydaddy.jutils.driver.Channel;
 
 public abstract class TransferTask<R> extends TaskService<R, DataTransformer<Channel, R>> {
     private final Channel channel;

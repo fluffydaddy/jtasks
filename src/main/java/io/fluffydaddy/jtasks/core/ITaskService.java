@@ -16,9 +16,9 @@
 
 package io.fluffydaddy.jtasks.core;
 
+import io.fluffydaddy.jreactive.DataSubscription;
+import io.fluffydaddy.jreactive.livedata.LiveData;
 import io.fluffydaddy.jtasks.execution.ExecutorHandler;
-import io.fluffydaddy.reactive.DataSubscription;
-import io.fluffydaddy.reactive.livedata.LiveData;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;

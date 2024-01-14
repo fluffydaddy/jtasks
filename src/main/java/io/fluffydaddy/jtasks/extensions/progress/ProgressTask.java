@@ -16,11 +16,10 @@
 
 package io.fluffydaddy.jtasks.extensions.progress;
 
-import io.fluffydaddy.annotation.AnyThread;
-import io.fluffydaddy.annotation.MainThread;
-
-import io.fluffydaddy.driver.Channel;
 import io.fluffydaddy.jtasks.extensions.transfer.TransferTask;
+import io.fluffydaddy.jutils.annotation.AnyThread;
+import io.fluffydaddy.jutils.annotation.MainThread;
+import io.fluffydaddy.jutils.driver.Channel;
 
 public abstract class ProgressTask<R> extends TransferTask<R> {
     public ProgressTask(Channel channel) {

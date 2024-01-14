@@ -16,15 +16,15 @@
 
 package io.fluffydaddy.jtasks.impl;
 
-import io.fluffydaddy.annotation.MainThread;
-import io.fluffydaddy.annotation.NonNull;
-import io.fluffydaddy.jtasks.execution.runtime.ArchTaskExecutor;
+import io.fluffydaddy.jreactive.livedata.LiveData;
+import io.fluffydaddy.jreactive.livedata.MutableLiveData;
+import io.fluffydaddy.jreactive.livedata.runtime.ArchTaskExecutor;
 import io.fluffydaddy.jtasks.core.ITaskService;
 import io.fluffydaddy.jtasks.core.ITaskTracker;
 import io.fluffydaddy.jtasks.core.TrackState;
 import io.fluffydaddy.jtasks.execution.ExecutorFactory;
-import io.fluffydaddy.reactive.livedata.LiveData;
-import io.fluffydaddy.reactive.livedata.MutableLiveData;
+import io.fluffydaddy.jutils.annotation.MainThread;
+import io.fluffydaddy.jutils.annotation.NonNull;
 
 import java.util.Objects;
 import java.util.concurrent.Callable;

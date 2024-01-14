@@ -16,10 +16,10 @@
 
 package io.fluffydaddy.feature.impl;
 
-import io.fluffydaddy.reactive.Scheduler;
-import io.fluffydaddy.jtasks.factory.Service;
 import io.fluffydaddy.feature.IFeature;
 import io.fluffydaddy.feature.ITask;
+import io.fluffydaddy.jreactive.Scheduler;
+import io.fluffydaddy.jtasks.factory.Service;
 
 public abstract class TaskImpl<P, R> implements ITask<P, R>, Service<P, R> {
 	@Override

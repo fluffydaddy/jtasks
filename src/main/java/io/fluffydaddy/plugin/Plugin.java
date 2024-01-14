@@ -16,7 +16,7 @@
 
 package io.fluffydaddy.plugin;
 
-import io.fluffydaddy.reactive.DataSubscriber;
+import io.fluffydaddy.jreactive.DataSubscriber;
 import io.fluffydaddy.storage.Storage;
 
 import java.io.IOException;
